@@ -2,6 +2,12 @@ import requests
 import socket
 import socks
 
+
+url="http://ip.tool.lu"
+resp=requests.get(url=url,verify=False,timeout=(3,3))
+print(resp.text)
+
+
 def setProxies():
     urlapi="http://tiqu.pyhttp.taolop.com/getip?count=1&neek=8737&type=1&yys=0&port=2&sb=&mr=1&sep=1&city=411200&time=2"
     proIp=requests.get(url=urlapi).text
