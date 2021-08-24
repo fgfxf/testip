@@ -26,9 +26,28 @@ def setProxies():
 
 
 def addWhite(IP):
-    urlapi="http://pycn.yapi.3866866.com/index/index/save_white?neek=8737&appkey=63892542302d2904498fe7579e173ad1&white="+IP
-    resp=requests.get(url=urlapi,verify=False,timeout=(3,3))
+    url="http://pycn.yapi.3866866.com/user/save_white_ip"
+    headers={
+    'POST':'/user/save_white_ip HTTP/1.1',
+    'Host':'pycn.yapi.3866866.com',
+    'Content-Length': '10',
+    'Accept': 'text/html, */*; q=0.01',
+    'Authorization':'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHByX3RpbWUiOiIxNjI5NzY4NTc5IiwidWlkIjoiODczNyJ9.dBE-q2fGcWGSYmIampl-3tZzUw4BBNtswfP48B-PK5I',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36 Edg/92.0.902.62',
+    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    'Origin': 'http://pc.py.cn',
+    'Referer': 'http://pc.py.cn/',
+    'Accept-Encoding': 'gzip, deflate',
+    'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6',
+    'Connection': 'close'
+
+    }
+    data={
+                'ip':IP
+   }
+    resp=requests.post(url=url,headers=headers,data=data)
     print(resp.text)
+
 
 def delWhile(IP):
     urlapi="http://pycn.yapi.3866866.com/index/index/del_white?neek=8737&appkey=63892542302d2904498fe7579e173ad1&white="+IP
